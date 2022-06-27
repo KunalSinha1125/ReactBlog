@@ -1,2 +1,2 @@
 # ReactBlog
-Following a React tutorial on building a basic blog app
+Building a very simple blog app!
