@@ -1,6 +1,10 @@
 import './App.css';
 import Navbar from './navbar'
 import Home from './home'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import Create from './create'
+import BlogDetails from './BlogDetails'
+import NotFound from './NotFound';
 
 function App() {
   const title = 'Welcome to the new blog';
@@ -9,12 +13,27 @@ function App() {
   //Cannot print booleans or objects as dynamic values
   const myLink = "http://www.bing.com";
   return (
-    <div className="App">
-      <Navbar/>
-      <div className="content">
-        <Home/>
+    <Router>
+      <div className="App">
+        <Navbar/>
+        <div className="content">
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/create">
+              <Create />
+            </Route>
+            <Route exact path="/blogs/:id">
+              <BlogDetails />
+            </Route>
+            <Route path="*">
+              <NotFound />
+            </Route>
+          </Switch>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
